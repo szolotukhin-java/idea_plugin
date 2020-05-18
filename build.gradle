@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.4.10'
+    id 'org.jetbrains.intellij' version '0.4.21'
 }
 
 group 'ua.in.sz.plugin_idea_2'
@@ -18,7 +18,7 @@ dependencies {
 
 intellij {
     type 'IU'
-    version '2019.2.1'
+    version '2020.1.1'
 }
 patchPluginXml {
     changeNotes """
