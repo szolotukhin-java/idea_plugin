@@ -27,13 +27,4 @@
                     factoryClass="ua.in.sz.ide.f01.MyToolWindowFactory"/>
     </extensions>
 
-    <actions>
-        <group id="ua.in.szolotukhin.plogin.ge.SampleMenu" text="GE" description="General electrics">
-            <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="ua.in.szolotukhin.plogin.ge.Textboxes" class="ua.in.sz.ide.f01.TextBoxes" text="Show Textbox"
-                    description="A test menu item"/>
-
-        </group>
-    </actions>
-
 </idea-plugin>
