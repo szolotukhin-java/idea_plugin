@@ -1,10 +1,8 @@
 package ua.in.sz.ide.f01;
 
 import com.intellij.icons.AllIcons;
-import com.intellij.openapi.actionSystem.ActionManager;
-import com.intellij.openapi.actionSystem.ActionPopupMenu;
-import com.intellij.openapi.actionSystem.ActionToolbar;
-import com.intellij.openapi.actionSystem.DefaultActionGroup;
+import com.intellij.openapi.actionSystem.*;
+import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.ui.PopupHandler;
@@ -15,7 +13,8 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.awt.*;
 
-public class MyToolWindow  extends SimpleToolWindowPanel {
+public class MyToolWindow extends SimpleToolWindowPanel {
+    private static final Logger LOG = Logger.getInstance(MyToolWindow.class);
 
     private JPanel myToolWindowContent;
     private SimpleTree simpleTree1;
@@ -23,6 +22,7 @@ public class MyToolWindow  extends SimpleToolWindowPanel {
     private DefaultMutableTreeNode rootNode;
     private transient DefaultActionGroup actionGroup;
     private transient ActionToolbar toolBar;
+    private transient AnAction refreshAction;
 
     public MyToolWindow(ToolWindow toolWindow) {
         super(false);
@@ -69,13 +69,27 @@ public class MyToolWindow  extends SimpleToolWindowPanel {
         setToolbar(toolBar.getComponent());
     }
 
-    private void configureActions() {
-        // Context menu with the plugin actions.
-        simpleTree1.addMouseListener(new PopupHandler() {
+    private void createRefreshRepositoryAction() {
+        refreshAction = new AnAction() {
+            @Override
+            public void actionPerformed(AnActionEvent anActionEvent) {
+                LOG.warn("Action was started");
+            }
+        };
 
+        refreshAction.getTemplatePresentation().setIcon(AllIcons.Actions.Refresh);
+        refreshAction.getTemplatePresentation().setDescription("Action description");
+        refreshAction.getTemplatePresentation().setText("Action text");
+
+        actionGroup.add(refreshAction);
+    }
+
+    private void configureActions() {
+        createRefreshRepositoryAction();
+
+        simpleTree1.addMouseListener(new PopupHandler() {
             @Override
             public void invokePopup(Component comp, int x, int y) {
-
                 ActionPopupMenu actionPopupMenu = ActionManager.getInstance()
                         .createActionPopupMenu("LivingDoc.RepositoryViewToolbar", actionGroup);
                 actionPopupMenu.getComponent().show(comp, x, y);
