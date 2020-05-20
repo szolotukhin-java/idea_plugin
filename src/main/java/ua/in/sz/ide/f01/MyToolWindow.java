@@ -1,5 +1,6 @@
 package ua.in.sz.ide.f01;
 
+import com.intellij.icons.AllIcons;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.ui.treeStructure.SimpleTree;
 
@@ -27,14 +28,14 @@ public class MyToolWindow {
         simpleTree1.setCellRenderer(new TreeCellRendererLivingDoc());
         simpleTree1.setRootVisible(true);
 
-        rootNode = new DefaultMutableTreeNode(new Node("Root node"));
+        rootNode = new DefaultMutableTreeNode(new Node("Root node", AllIcons.Nodes.Project));
         treeModel = new DefaultTreeModel(rootNode, true);
         simpleTree1.setModel(treeModel);
     }
 
     private void loadRepositories() {
         for (int i = 0; i < 10; i++) {
-            Node moduleNode = new Node("child" + i);
+            Node moduleNode = new Node("child" + i, AllIcons.Nodes.Module);
             DefaultMutableTreeNode moduleTreeNode = new DefaultMutableTreeNode(moduleNode, false);
             rootNode.add(moduleTreeNode);
         }

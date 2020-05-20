@@ -19,6 +19,7 @@ public class TreeCellRendererLivingDoc extends DefaultTreeCellRenderer {
             Node node = (Node) object;
 
             setText(node.getNodeName());
+            setIcon(node.getIcon());
         }
         return component;
     }

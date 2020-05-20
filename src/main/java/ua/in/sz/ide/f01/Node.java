@@ -1,24 +1,23 @@
 package ua.in.sz.ide.f01;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import javax.swing.*;
 import java.io.Serializable;
 
 public class Node implements Serializable {
 
     private Node parent;
     private String nodeName;
+    private transient Icon icon;
 
     public Node() {
         parent = null;
     }
 
-    public Node(final String nodeName, final Node parent) {
-        this(nodeName);
-        this.parent = parent;
-    }
-
-    public Node(final String nodeName) {
+    public Node(final String nodeName, Icon icon) {
         this.nodeName = nodeName;
+        this.icon = icon;
     }
 
     @Override
@@ -28,6 +27,14 @@ public class Node implements Serializable {
                 .append("parent", parent)
                 .append("nodeName", nodeName)
                 .toString();
+    }
+
+    public Icon getIcon() {
+        return icon;
+    }
+
+    public void setIcon(final Icon icon) {
+        this.icon = icon;
     }
 
     public String getNodeName() {
