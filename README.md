@@ -5,3 +5,4 @@ Create IDEA plugin
 https://www.jetbrains.org/intellij/sdk/docs/user_interface_components/kotlin_ui_dsl.html
 
 K:\projects\livingdoc-intellij
+https://github.com/testIT-LivingDoc/livingdoc-intellij
