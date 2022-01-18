@@ -20,9 +20,13 @@
     <vendor url="https://plugins.jetbrains.com">IntelliJ Platform SDK</vendor>
 
     <extensions defaultExtensionNs="com.intellij">
+        <fileType name="CSV" language="csv" implementationClass="net.seesharpsoft.intellij.plugins.csv.CsvFileType" extensions="csv" fieldName="INSTANCE"/>
+
         <defaultLiveTemplates file="/liveTemplates/Markdown.xml"/>
         <liveTemplateContext implementation="org.intellij.sdk.liveTemplates.MarkdownContext"/>
         <liveTemplateMacro implementation="org.intellij.sdk.liveTemplates.TitleCaseMacro"/>
+
+        <fileEditorProvider implementation="net.seesharpsoft.intellij.plugins.csv.editor.table.CsvTableEditorProvider"/>
     </extensions>
 
     <actions>
