@@ -64,6 +64,16 @@ public class CsvTableEditorSwing implements FileEditor {
     }
 
     @Override
+    public void selectNotify() {
+
+    }
+
+    @Override
+    public void deselectNotify() {
+        // auto save on change - nothing to do here
+    }
+
+    @Override
     public void addPropertyChangeListener(@NotNull PropertyChangeListener listener) {
 
     }
@@ -89,7 +99,21 @@ public class CsvTableEditorSwing implements FileEditor {
     }
 
     private void createUIComponents() {
-        tblEditor = new JBTable(new DefaultTableModel(0, 0));
+        DefaultTableModel tableModel = new DefaultTableModel(0, 0);
+        for (int columnIndex = 0; columnIndex < 20; ++columnIndex) {
+            tableModel.addColumn(String.format("Column %s (%s entries)", columnIndex + 1, 20));
+        }
+
+        tableModel.setRowCount(30);
+        tableModel.setColumnCount(20);
+
+        for (int row = 0; row < 30; ++row) {
+            for (int column = 0; column < 20; ++column) {
+                tableModel.setValueAt("Val: " + row + ", " + column, row, column);
+            }
+        }
+
+        tblEditor = new JBTable(tableModel);
     }
 
     private void initializedUIComponents() {
