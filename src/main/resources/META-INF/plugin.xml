@@ -22,14 +22,14 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="CSV" language="csv" implementationClass="net.seesharpsoft.intellij.plugins.csv.CsvFileType" extensions="csv" fieldName="INSTANCE"/>
 
-        <defaultLiveTemplates file="/liveTemplates/Markdown.xml"/>
+        <!--<defaultLiveTemplates file="/liveTemplates/Markdown.xml"/>
         <liveTemplateContext implementation="org.intellij.sdk.liveTemplates.MarkdownContext"/>
-        <liveTemplateMacro implementation="org.intellij.sdk.liveTemplates.TitleCaseMacro"/>
+        <liveTemplateMacro implementation="org.intellij.sdk.liveTemplates.TitleCaseMacro"/>-->
 
         <fileEditorProvider implementation="net.seesharpsoft.intellij.plugins.csv.editor.table.CsvTableEditorProvider"/>
     </extensions>
 
-    <actions>
+<!--    <actions>
         <action id="StackOverflow.AskQuestion.ToolsMenu"
                 class="com.baeldung.intellij.stackoverflowplugin.AskQuestionAction"
                 text="Ask Question on Stack Overflow"
@@ -51,5 +51,5 @@
                 description="Search on Stack Overflow">
             <add-to-group group-id="ConsoleEditorPopupMenu" anchor="last"/>
         </action>
-    </actions>
+    </actions>-->
 </idea-plugin>
