@@ -26,6 +26,9 @@
         <liveTemplateContext implementation="org.intellij.sdk.liveTemplates.MarkdownContext"/>
         <liveTemplateMacro implementation="org.intellij.sdk.liveTemplates.TitleCaseMacro"/>-->
 
+        <applicationService serviceImplementation="net.seesharpsoft.intellij.plugins.csv.settings.CsvEditorSettings"/>
+
+        <editorOptionsProvider instance="net.seesharpsoft.intellij.plugins.csv.settings.CsvEditorSettingsProvider"/>
         <fileEditorProvider implementation="net.seesharpsoft.intellij.plugins.csv.editor.table.CsvTableEditorProvider"/>
     </extensions>
 
